@@ -1,3 +1,8 @@
-<% for word in @words.sort_by { rand } %>
-<%= word %>
-<% end %>
+<div id="words">
+  <h2>Her er dine ord</h2>
+  <% for word in @words.sort_by { rand } %>
+  <span class="word">
+    <%= word %>
+  </span>
+  <% end %>
+</div>
