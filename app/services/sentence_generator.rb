@@ -73,7 +73,10 @@ class SentenceGenerator
       "din",
       "en",
       "et",
-      "så"
+      "så",
+      "i",
+      "på",
+      "for"
     ]
   end
 end
