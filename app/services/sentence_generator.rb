@@ -15,6 +15,7 @@ class SentenceGenerator
   def fetch_words
     fetch_words = []
     fetch_words += random_sentence_words
+    fetch_words += common_words.sample(3)
     fetch_words += random_words(number_of_words, random_sentence_words)
     fetch_words.uniq.sort_by { rand }
   end
@@ -59,6 +60,20 @@ class SentenceGenerator
       "jeg har en storebror",
       "jeg har en storesøster",
       "jeg har en lillebror"
+    ]
+  end
+
+  def common_words
+    [
+      "at",
+      "er",
+      "og",
+      "eller",
+      "min",
+      "din",
+      "en",
+      "et",
+      "så"
     ]
   end
 end
