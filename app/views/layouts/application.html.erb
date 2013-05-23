@@ -8,6 +8,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<ul>
+<% if user_signed_in? %>
+<li><%= current_user.email %></li>
+<li><%= link_to "<i class='icon-edit'></i> Min Profil".html_safe, edit_user_registration_path %></li>
+<li><%= link_to "Log ud", destroy_user_session_path, method: :delete %></li>
+<% else %>
+<li><%= link_to "Log ind", new_user_session_path, class: "active" %></li>
+<% end %>
+</ul>
 
 <%= yield %>
 
