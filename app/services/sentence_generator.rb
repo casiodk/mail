@@ -1,16 +1,22 @@
 # -*- encoding : utf-8 -*-
 class SentenceGenerator
   attr_reader :number_of_words
+  attr_reader :name
 
-  def initialize(number_of_words=5)
+  def initialize(number_of_words=5, name=nil)
     @number_of_words = number_of_words
+    @name = name
   end
 
   def words
-    words = []
-    words += random_sentence_words
-    words += random_words(number_of_words, random_sentence_words)
-    words.uniq
+    fetch_words
+  end
+
+  def fetch_words
+    fetch_words = []
+    fetch_words += random_sentence_words
+    fetch_words += random_words(number_of_words, random_sentence_words)
+    fetch_words.uniq.sort_by { rand }
   end
 
   def sentences
@@ -23,7 +29,9 @@ class SentenceGenerator
       "vil du med til min fødselsdag",
       "har du en bamse",
       "hvor bor du henne",
-      "kan du lide pizza"
+      "kan du lide pizza",
+      "hvor bor du",
+      "jeg hedder #{ name }"
     ]
   end
 
